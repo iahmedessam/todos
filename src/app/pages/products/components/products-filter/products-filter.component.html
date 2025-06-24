@@ -1,0 +1,31 @@
+<section class="filters">
+    <p class="filters__title">{{ 'products' | translate }}</p>
+    <div>
+        @for (product of products; track $index; let isLast = $last) {
+        <!-- Category -->
+        <div class="filters__category">
+            <div class="filters__category-content">
+                <img class="filters__category-image" [src]="product.icon" [alt]="product.category">
+                <p class="filters__category-title">{{product.category}}</p>
+            </div>
+            <i (click)="toggleDropdown($index)" class="filters__category-icon pi"
+                [ngClass]="{'pi-chevron-down': !isDropdownOpen($index),'pi-chevron-up': isDropdownOpen($index)}">
+            </i>
+        </div>
+        @if(isDropdownOpen($index)){
+        @for (product of product.brands; track $index) {
+        <!-- Brand -->
+        <p class="filters__brand">{{ product?.name }}</p>
+        @for (product of product.products; track $index) {
+        <!-- Product -->
+        <button (click)="navigatToProduct(product.id)" class="filters__product"
+            [ngClass]="{'filters__product--active': product.id == selectedProductId}">{{ product.type }}</button>
+        } }
+        <!-- @if (!isLast) { -->
+        <!-- Divider -->
+        <!-- <hr class="filters__divider" />
+        } -->
+        }
+        }
+    </div>
+</section>

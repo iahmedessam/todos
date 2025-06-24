@@ -1,0 +1,48 @@
+<footer class="footer">
+    <!-- Go Top button -->
+    <button class="footer__up-btn" type="button" [attr.aria-label]="'ARIA-LABEL.scroll-to-top' | translate"
+        (click)="scrollUp()">
+        <i class="footer__up-btn-icon pi pi-angle-up"></i>
+    </button>
+
+    <!-- Content -->
+    <div class="footer__content">
+        <!-- Quick links  -->
+        <!-- <div class="footer__quick-links">
+            <p class="footer__quick-links-header">{{"quick-links" | translate}}</p>
+            @for(link of quickLinks; track $index) {
+            <a [href]="link" class="footer__quick-links-item" [attr.aria-label]="link"> {{ link | translate}} </a>
+            }
+        </div> -->
+        <!-- Logo -->
+        <img class="footer__logo" src="assets/images/logos/logo-footer-white.svg" alt="logo">
+        <!-- Contact info section -->
+        <div class="footer__contact-us">
+            <p class="footer__contact-us-header">{{"contact-info" | translate}}</p>
+            @for(contact of contactUs; track $index) {
+            <div class="footer__contact-us-item">
+                <i [class]="'footer__contact-us-icon pi ' + contact.icon"></i>
+                <p [innerHTML]="contact.label" class="footer__contact-us-text">{{contact.label}}</p>
+            </div>
+            }
+        </div>
+        <!-- Follow us section -->
+        <div class="footer__follow-us">
+            <!-- Working hours -->
+            <div class="footer__working-hours">
+                <p class="footer__working-hours-header">{{"working-hours" | translate}}</p>
+                <p [innerHTML]="currentLang == 'en'? workingHoursEn : workingHoursAr"
+                    class="footer__working-hours-item"></p>
+            </div>
+            <p class="footer__follow-us-header">{{"social-media" | translate}}</p>
+            @for(link of followUsLinks; track $index) {
+            <a [href]="link.path" target="_blank" [attr.aria-label]="link.label" class="footer__follow-us-item">
+                <i [class]="'footer__follow-us-icon pi ' + link.icon"></i>
+            </a>
+            }
+        </div>
+    </div>
+
+    <!-- Copy rights -->
+    <p class="footer__copy-rights">{{currentLang == 'en'? copyRightsEn : copyRightsAr}}</p>
+</footer>

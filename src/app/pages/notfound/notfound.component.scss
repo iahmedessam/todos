@@ -1,0 +1,12 @@
+@import "../../shared/styles/variables";
+
+.not-found {
+  width: 85%;
+  margin: auto;
+  margin-block: 60px;
+  &__image {
+    display: block;
+    max-width: -webkit-fill-available;
+    margin: auto;
+  }
+}

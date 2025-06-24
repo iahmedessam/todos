@@ -1,0 +1,59 @@
+@import "../../../../shared/styles/media";
+@import "../../../../shared/styles/variables";
+
+.overview {
+  display: block;
+  width: 85%;
+  margin: auto;
+  margin-block: 40px 80px;
+  padding-top: 40px;
+  @media (max-width: $breakpoint-md) {
+    margin-block: 0 40px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 36px;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+  &__wrapper-reverse {
+    flex-direction: row-reverse;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+  &__title {
+    color: var(--secondary);
+    font-size: $font-size-xxl;
+    font-weight: 600;
+    margin-bottom: 24px;
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-xl;
+      margin-bottom: 12px;
+    }
+  }
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    color: var(--soft-grey);
+    font-size: $font-size-md;
+    margin-bottom: 12px;
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-base;
+    }
+  }
+  &__image {
+    width: 400px;
+    height: auto;
+    border-radius: 50%;
+    @media (max-width: $breakpoint-lg) {
+      width: 300px;
+    }
+  }
+}

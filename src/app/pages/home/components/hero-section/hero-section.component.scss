@@ -1,0 +1,59 @@
+@import "../../../../shared/styles/media";
+@import "../../../../shared/styles/variables";
+
+.hero-section {
+  background-color: var(--light-surface);
+  padding-top: 32px;
+  @media (max-width: $breakpoint-md) {
+    padding-block: 32px;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    width: 85%;
+    margin: auto;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__image {
+    width: 550px;
+    height: auto;
+    aspect-ratio: 5 / 4;
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+  &__btn {
+    background-color: var(--secondary);
+    color: var(--neutral);
+    border: none;
+    border-radius: 20px;
+    font-size: $font-size-base;
+    margin-top: 24px;
+    padding: 12px 32px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+  }
+  &__title,
+  &__desc {
+    font-size: $font-size-xxxl;
+    font-weight: 600;
+    text-align: start;
+    text-transform: uppercase;
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-xxl;
+    }
+  }
+  &__desc {
+    font-size: $font-size-xxl;
+    color: var(--secondary);
+  }
+}

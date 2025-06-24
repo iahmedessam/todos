@@ -1,0 +1,13 @@
+<section class="certifications">
+    <!-- Header -->
+    <p class="certifications__header">{{ 'certifications' | translate}}</p>
+    <!-- Certifications -->
+    <div class="certifications__wrapper">
+        <div class="certifications__content">
+            @for (certification of certifications; track $index) {
+            <img class="certifications__image" [src]="'assets/images/certifications/' + certification + '.svg'"
+                [alt]="certification">
+            }
+        </div>
+    </div>
+</section>

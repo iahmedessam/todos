@@ -1,0 +1,25 @@
+<section class="products">
+    <!-- Header -->
+    <p class="products__header">{{ "products" | translate }}</p>
+    <!-- Products -->
+    <div class="products__container">
+        @for(product of products; track $index){
+        <div>
+            <!-- Brand -->
+            <img class="products__image" [src]="product.image" [alt]="product.brand">
+            <!-- Product types -->
+            <div class="products__types">
+                @for(product of product.types; track $index){
+                <div class="products__types-card" (click)="navigateToProduct(product.id)">
+                    <img class="products__types-image" [src]="product.path" [alt]="product.name">
+                    <p class="products__types-label">{{"PRODUCTS." +product.name | translate}}</p>
+                    @if (product.desc) {
+                    <p class="products__types-desc">{{ "PRODUCTS." +product.desc | translate}}</p>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</section>

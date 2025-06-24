@@ -1,0 +1,82 @@
+<section class="navbar">
+    <!-- NAVBAR -->
+    <!-- Logo -->
+    <div>
+        <a [routerLink]="'/'+currentLang">
+            <img class="navbar__logo" src="assets/images/logos/logo.svg" alt="logo">
+        </a>
+    </div>
+    <!-- Links -->
+    <div class="navbar__links">
+        <ul class="navbar__links-container">
+            @for(link of navbarLinks; track $index){
+            <li class="navbar__links-item">
+                <a class="navbar__links-link" [routerLink]="currentLang + '/' + link.path"
+                    [routerLinkActiveOptions]="{ exact: link.path === '' }" routerLinkActive="navbar__links-active">
+                    {{ link.label | translate }}
+                </a>
+            </li>
+            }
+        </ul>
+        <!-- Separator -->
+        <div class="navbar__links-separator"></div>
+        <!-- Language -->
+        <div class="navbar__links-lang" (click)="changeLang()">
+            @if (currentLang == 'ar') {
+            <div class="navbar__links-lang-btn">
+                <img class="navbar__links-img" src="assets/images/flags/uk.svg" alt="ar">
+                EN
+            </div>
+            } @else if (currentLang == 'en') {
+            <div class="navbar__links-lang-btn">
+                <img class="navbar__links-img" src="assets/images/flags/egypt.svg" alt="en">
+                العربية
+            </div>
+            }
+        </div>
+        <!-- Slide Menu button -->
+        <button type="button" [attr.aria-label]="'ARIA-LABEL.toggle-menubar' | translate" class="navbar__links-menu"
+            (click)="toggleMenu()">
+            <i class="pi pi-bars navbar__links-menu-icon"></i>
+        </button>
+    </div>
+    <!-- SLIDEMENU -->
+    <!-- Backdrop -->
+    @if (menuOpen) { <div class="navbar__backdrop"></div>}
+    <div class="navbar__slide-menu" [ngClass]="{ 'slide-menu-open': menuOpen }">
+        <!-- Header -->
+        <div class="navbar__slide-menu-header">
+            <button type="button" [attr.aria-label]="'ARIA-LABEL.close-menubar' | translate"
+                class="navbar__slide-menu-close-btn" (click)="closeMenu()">
+                <i class="pi pi-times  navbar__links-menu-icon"></i>
+            </button>
+        </div>
+        <!-- Body -->
+        <div class="navbar__slide-menu-body">
+            <ul class="navbar__slide-menu-body-container">
+                @for(link of navbarLinks; track $index){
+                <li class="navbar__slide-menu-body-item" (click)="closeMenu()">
+                    <a class="navbar__slide-menu-body-link" [routerLink]="currentLang+'/'+link.path"
+                        [routerLinkActiveOptions]="{ exact: link.path === '' }"
+                        routerLinkActive="navbar__slide-menu-body-active">
+                        {{link.label | translate}}
+                    </a>
+                </li>
+                }
+                <!-- Language -->
+                <div class="navbar__slide-menu-body-lang" (click)="changeLang()">
+                    @if (currentLang == 'ar') {
+                    <div class="navbar__slide-menu-lang-btn">
+                        <img class="navbar__slide-menu-img" src="assets/images/flags/uk.svg" alt="ar">
+                        EN
+                    </div>
+                    } @else if (currentLang == 'en') {
+                    <div class="navbar__slide-menu-lang-btn">
+                        <img class="navbar__slide-menu-img" src="assets/images/flags/egypt.svg" alt="en">
+                        العربية
+                    </div> }
+                </div>
+            </ul>
+        </div>
+    </div>
+</section>
