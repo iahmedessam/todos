@@ -1,0 +1,20 @@
+<!-- Header -->
+<div class="products__header">
+    <p class="products__header-title">{{ 'our-products' | translate }}</p>
+    <p class="products__header-content">{{ 'about-us-content-1' | translate }}</p>
+</div>
+
+<!-- Products -->
+<section id="products" class="products">
+    <div class="products__wrapper">
+        <app-products-filter [products]="products" (loading)="setLoading($event)"></app-products-filter>
+        <!-- Product details shown based on /:id -->
+        <div *ngIf="!isLoading; else loadingTemplate">
+            <router-outlet></router-outlet>
+        </div>
+
+        <ng-template #loadingTemplate>
+            <div class="products__spinner"></div>
+        </ng-template>
+    </div>
+</section>

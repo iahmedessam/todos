@@ -1,0 +1,64 @@
+@import "../../../../shared/styles/media";
+@import "../../../../shared/styles/variables";
+
+.filters {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  &__category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-block: 14px;
+    &-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+    }
+    &-icon {
+      // color: var(--secondary);
+      font-size: $font-size-xs;
+      cursor: pointer;
+    }
+    &-image {
+      width: 20px;
+    }
+    &-title {
+      // color: var(--secondary);
+      font-size: $font-size-base;
+      font-weight: 500;
+    }
+  }
+  &__brand {
+    font-weight: 500;
+    margin-block: 8px 10px;
+  }
+  &__product {
+    display: block;
+    color: var(--soft-grey);
+    background: transparent;
+    font-size: $font-size-smx;
+    border: none;
+    padding: 0;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  &__product--active {
+    background: var(--light-surface);
+    color: var(--neutral);
+    font-weight: 400;
+    padding: 3px;
+  }
+  &__divider {
+    color: var(--soft-grey);
+    opacity: 0.2;
+    margin-block: 16px 12px;
+  }
+}

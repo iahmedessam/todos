@@ -1,0 +1,42 @@
+@import "../../../../shared/styles/media";
+@import "../../../../shared/styles/variables";
+
+.certifications {
+  margin-block: 100px;
+  @media (max-width: $breakpoint-md) {
+    margin-block: 60px;
+  }
+  &__header {
+    font-size: $font-size-xxl;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  &__wrapper {
+    background-color: var(--primary);
+    padding: 42px 32px;
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 24px;
+    width: 95%;
+    margin: auto;
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &__image {
+    width: 75px;
+    margin: auto;
+    @media (max-width: $breakpoint-sm) {
+      width: 60px;
+    }
+  }
+}

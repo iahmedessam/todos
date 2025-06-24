@@ -1,0 +1,24 @@
+<section class="testimonials">
+    <!-- Header -->
+    <p class="testimonials__header">{{ 'testimonials' | translate}}</p>
+    <!-- Testimonials -->
+    <div class="testimonials__cards-wrapper">
+        @for(testimonial of testimonials; track $index){
+        <div class="testimonials__card" [ngClass]="{'testimonials__card-scaled': $index === 1}">
+            <div class="testimonials__user">
+                <img class="testimonials__image" [src]="testimonial.path" [alt]="testimonial.name">
+                <div>
+                    <p class="testimonials__name">{{ 'TESTIMONIALS.' +testimonial.name | translate }}</p>
+                    <p class="testimonials__country">{{ 'TESTIMONIALS.' + testimonial.country | translate}}</p>
+                </div>
+            </div>
+            <p class="testimonials__content">{{ 'TESTIMONIALS.' +testimonial.content | translate}}</p>
+            <div>
+                @for(testimonial of testimonial.stars; track $index){
+                <i class="testimonials__icon pi pi-star-fill"></i>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</section>

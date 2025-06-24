@@ -1,0 +1,60 @@
+@import "../../../../shared/styles/media";
+@import "../../../../shared/styles/variables";
+
+.testimonials {
+  width: 85%;
+  margin: auto;
+  margin-block: 0 120px;
+  @media (max-width: $breakpoint-md) {
+    margin-block: 0 80px;
+  }
+
+  &__header {
+    font-size: $font-size-xxl;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  &__cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 32px;
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  &__card {
+    background: var(--primary);
+    color: var(--neutral);
+    border-radius: 16px;
+    padding: 16px 24px;
+  }
+  &__card-scaled {
+    transform: scale(1.08);
+    @media (max-width: $breakpoint-md) {
+      transform: scale(1);
+    }
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  &__name {
+    font-weight: 500;
+  }
+  &__country {
+    font-size: $font-size-xs;
+  }
+  &__content {
+    font-size: $font-size-xs;
+    line-height: 1.6;
+    margin-block: 12px;
+  }
+  &__icon {
+    color: var(--secondary);
+    margin-inline-end: 4px;
+  }
+}

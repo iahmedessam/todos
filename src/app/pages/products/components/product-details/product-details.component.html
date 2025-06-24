@@ -1,0 +1,76 @@
+<section class="product-details">
+    <!-- Slider -->
+    <div class="product-details__slider">
+        <button class="product-details__slider-btn" type="button" (click)="handleClick('previous')"
+            [ngClass]="{ 'clicked': clickedBtn === 'previous' }">
+            <i class="product-details__slider-icon pi"
+                [ngClass]="currentLang === 'en'? 'pi-angle-left' : 'pi-angle-right'"></i>
+        </button>
+        <img [src]="selectedImage" alt="">
+        <button class="product-details__slider-btn" type="button" (click)="handleClick('next')"
+            [ngClass]="{ 'clicked': clickedBtn === 'next' }">
+            <i class="product-details__slider-icon pi"
+                [ngClass]="currentLang === 'en'? 'pi-angle-right' : 'pi-angle-left'"></i>
+        </button>
+    </div>
+    <!-- Content -->
+    <div class="product-details__content">
+        <img [src]="selectedProduct.logo" [alt]="selectedProduct.type">
+        <div>
+            <p class="product-details__content-title">{{selectedProduct.type}}</p>
+            <p class="product-details__content-desc">{{selectedProduct.desc}}</p>
+        </div>
+        <!-- Product size -->
+        @if (selectedProduct.sizes?.length >= 1 ) {
+        <div class="product-details__content-sizes">
+            <p class="product-details__content-sizes-title">{{ 'available-sizes' | translate}}</p>
+            <div class="product-details__content-sizes-wrapper">
+                @for (size of selectedProduct.sizes; track $index) {
+                <span class="product-details__content-sizes-item">
+                    <p>{{size}}</p>
+                </span>
+                }
+            </div>
+        </div>
+        }
+        <!-- Product color -->
+        @if(selectedProduct.colors?.length >= 1) {
+        <div class="product-details__content-colors">
+            <p class="product-details__content-colors-title">{{ 'colors' | translate}}</p>
+            <div class="product-details__content-colors-wrapper">
+                @for (color of selectedProduct.colors; track $index) {
+                <span class="product-details__content-colors-item" [style.background]="color"></span>
+                }
+            </div>
+        </div>
+        }
+        <!-- Product flavors -->
+        @if(selectedProduct.flavors?.length >= 1) {
+        <div class="product-details__content-flavors">
+            <p class="product-details__content-flavors-title">{{ 'flavors' | translate}}</p>
+            <div class="product-details__content-flavors-wrapper">
+                @for (flavor of selectedProduct.flavors; track $index) {
+                <span class="product-details__content-flavors-item">
+                    <p>{{"PRODUCTS."+flavor | translate}}
+                        @if (!$last) {<span>-&nbsp;</span>}</p>
+                </span>
+                }
+            </div>
+        </div>
+        }
+        <!-- Product types -->
+        @if(selectedProduct.types?.length >= 1) {
+        <div class="product-details__content-types">
+            <p class="product-details__content-types-title">{{ 'types' | translate}}</p>
+            <div class="product-details__content-types-wrapper">
+                @for (type of selectedProduct.types; track $index) {
+                <span class="product-details__content-types-item">
+                    <p>{{"PRODUCTS."+type | translate}}
+                        @if (!$last) {<span>-&nbsp;</span>}</p>
+                </span>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</section>

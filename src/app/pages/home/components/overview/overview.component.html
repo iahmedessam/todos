@@ -1,0 +1,13 @@
+<section id="overview-section" class="overview">
+    @for (overview of overviews; track $index) {
+    <div class="overview__wrapper" [ngClass]="{ 'overview__wrapper-reverse': $index === 1 }">
+        <div class="overview__content-container">
+            <p class="overview__title">{{ 'OVERVIEW.'+overview.title | translate }}</p>
+            <p class="overview__content">{{ 'OVERVIEW.'+overview.firstContent | translate }}</p>
+            <p class="overview__content">{{ 'OVERVIEW.'+overview.secondContent | translate }}</p>
+        </div>
+        <img class="overview__image" [src]="overview.image" [alt]="overview.title" />
+    </div>
+    }
+</section>
+  

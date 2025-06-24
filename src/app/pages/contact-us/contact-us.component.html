@@ -1,0 +1,41 @@
+<div class="contact-us">
+    <!-- Header -->
+    <div class="contact-us__header">
+        <p class="contact-us__header-title">{{ 'contact-us' | translate }}</p>
+        <p class="contact-us__header-content">{{ 'contact-us-desc' | translate }}</p>
+    </div>
+    <div class="contact-us__info">
+        <div>
+            <img class="contact-us__info-image" src="assets/images/main/contact-us.png" alt="contact-us">
+        </div>
+        <div class="contact-us__info-general">
+            @for(info of contactUsInfo; track $index) {
+            <div class="contact-us__info-item">
+                <p class="contact-us__info-label">{{ info.label | translate }}</p>
+                @for(val of info.values; track $index) {
+                <p class="contact-us__info-value"><i [class]="'contact-us__info-icon pi ' + info.icon"></i>{{ val }}</p>
+                }
+            </div>
+            }
+        </div>
+        <div class="contact-us__info-social">
+            <p class="contact-us__info-label">{{ 'social-media' | translate }}</p>
+            <div class="contact-us__info-links">
+                @for(link of socialMedia; track $index) {
+                <a [href]="link.path" target="_blank" [attr.aria-label]="link.label" class="contact-us__info-link">
+                    <i [class]="'footer__follow-us-icon pi ' + link.icon"></i> {{link.label | translate}}</a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="contact-us__more">
+        <div class="contact-us__more-card">
+            <p class="contact-us__more-label">{{ 'address' | translate }}</p>
+            <p class="contact-us__more-value" [innerHTML]="currentLang == 'en'? addressEn: addressAr"></p>
+        </div>
+        <div class="contact-us__more-card">
+            <p class="contact-us__more-label">{{ 'working-hours' | translate }}</p>
+            <p class="contact-us__more-value" [innerHTML]="currentLang == 'en'? workingHoursEn : workingHoursAr"></p>
+        </div>
+    </div>
+</div>

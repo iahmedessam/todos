@@ -1,0 +1,81 @@
+<section class="about-us">
+    <!-- Header -->
+    <div class="about-us__header">
+        <p class="about-us__header-title">{{ 'about-us' | translate }}</p>
+        <p class="about-us__header-content">{{ 'about-us-content-1' | translate }}</p>
+        <p class="about-us__header-content">{{ 'about-us-content-2' | translate }}</p>
+    </div>
+
+    <!-- Today products -->
+    <div class="about-us__today-products">
+        <p class="about-us__today-products-title">{{ 'today-our-product' | translate}}</p>
+        <div class="about-us__today-products-cards-wrapper">
+            @for (product of todayProducts; track $index) {
+            <div class="about-us__today-products-card">
+                <img class="about-us__today-products-image" [src]="product.path" [alt]="product.label">
+                <p class="about-us__today-products-content">{{ product.label | translate }}</p>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- Mission, vision & values -->
+    <div class="about-us__identity">
+        <p class="about-us__identity-header">{{ 'isnt-about-products' | translate}}</p>
+        <p class="about-us__identity-header">{{ 'its-about' | translate}}</p>
+        <div class="about-us__identity-cards-wrapper">
+            @for (identity of identity; track $index) {
+            <div class="about-us__identity-card">
+                <p class="about-us__identity-title">{{ 'IDENTITY.'+identity.label | translate }}</p>
+                @for(identity of identity.content; track $index){
+                <p class="about-us__identity-content">
+                    {{ 'IDENTITY.'+identity |translate }}
+                </p>
+                }
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- Partners quote -->
+    <div class="about-us__quote">
+        <div class="about-us__quote-wrapper">
+            <img class="about-us__quote-image" src="assets/images/icons/quote-up.svg" alt="quote">
+            <p class="about-us__quote-content"> {{ 'about-us-quote' | translate }}</p>
+            <img class="about-us__quote-image" src="assets/images/icons/quote-down.svg" alt="quote">
+        </div>
+    </div>
+
+    <!-- Distribution Section -->
+    <div class="about-us__distribution">
+        <h2 class="about-us__distribution-header">{{ 'our-journey' | translate}}</h2>
+        <p class="about-us__distribution-content">{{ 'our-journey-content' | translate}}</p>
+        <div class="about-us__distribution-cards-wrapper">
+            @for (achievement of distributionAchievements; track $index) {
+            <div class="about-us__distribution-card">
+                <img class="about-us__distribution-image" [src]="achievement.path" [alt]="achievement.label">
+                <p class="about-us__distribution-label">{{achievement.label | translate}}</p>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- Partners -->
+    <div id="partners" class="about-us__partners">
+        <h2 class="about-us__partners-header">{{ 'our-partners' | translate}} </h2>
+        <div class="about-us__partners-cards-wrapper">
+            @for (partner of partners; track $index) {
+            <div class="about-us__partners-card">
+                <img class="about-us__partners-image" [src]="partner.path" [alt]="partner.label">
+                <div class="about-us__partners-content-wrapper">
+                    @for (content of partner.content; track $index) {
+                    <p class="about-us__partners-content">
+                        {{ 'PARTNERS.'+ content | translate }}
+                    </p>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

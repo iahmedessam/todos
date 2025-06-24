@@ -1,0 +1,32 @@
+<section class="achievements">
+    <!-- Header -->
+    <h2 class="achievements__header">{{ 'our-achievements' | translate}}</h2>
+    <!-- Trusted section -->
+    <div class="achievements__trusted">
+        <p class="achievements__trusted-title">{{ 'our-achievements-title' | translate}}</p>
+        <p class="achievements__trusted-content">{{ 'our-achievements-content' | translate}}</p>
+        <div class="achievements__trusted-cards-wrapper">
+            @for(achievement of trustedAchievements; track $index){
+            <div class="achievements__trusted-card">
+                <img class="achievements__trusted-image" [src]="achievement.path" [alt]="achievement.label">
+                <p class="achievements__trusted-label">{{achievement.label | translate}}</p>
+            </div>
+            }
+        </div>
+    </div>
+    <!-- Reliable Distribution Section -->
+    <div class="achievements__distribution">
+        <p class="achievements__distribution-title">{{ 'reliable-distribution' | translate}}</p>
+        <div class="achievements__distribution-cards-wrapper">
+            @for(achievement of distributionAchievements; track $index){
+            <div class="achievements__distribution-card">
+                <img class="achievements__distribution-image" [src]="achievement.path" [alt]="achievement.label">
+                <p class="achievements__distribution-label">{{achievement.label | translate}}</p>
+            </div>
+            }
+        </div>
+    </div>
+    <!-- Meet our partners -->
+    <button class="achievements__partners-btn" type="button" (click)="navigateToPartners()"
+        [attr.aria-label]="'ARIA-LABEL.meet-our-partners' | translate"> {{ 'meet-our-partners' | translate }}</button>
+</section>

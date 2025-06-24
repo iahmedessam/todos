@@ -1,0 +1,12 @@
+<section class="hero-section">
+    <div class="hero-section__wrapper">
+        <div class="hero-section__content">
+            <p class="hero-section__title">{{ 'brand-name' | translate}}</p>
+            <p class="hero-section__desc">{{ 'the-power-of-everything' | translate}}</p>
+            <button class="hero-section__btn" type="button" [attr.aria-label]="'ARIA-LABEL.get-started' | translate"
+                (click)="scrollToFragment()">{{ 'get-started' |
+                translate}}</button>
+        </div>
+        <img class="hero-section__image" src="assets/images/main/doctors-illustration.svg" alt="doctors-illustration" />
+    </div>
+</section>
